@@ -64,8 +64,10 @@ class _HomePageState extends State<HomePage> {
                   color: AppColors.primary,
                 )),
             GestureDetector(
-              onTap: () {
-                print('Clicou');
+              onDoubleTap: () {
+                // Por algum motivo, o onTap não funciona
+                //Navigator.pushNamed(context, "/barcode_scanner");
+                Navigator.pushNamed(context, "/insert_boleto");
               },
               child: Container(
                 width: 56,
