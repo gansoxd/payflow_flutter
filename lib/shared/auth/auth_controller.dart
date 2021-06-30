@@ -12,7 +12,7 @@ class AuthController {
     if (pUser != null) {
       saveUser(pUser);
       _user = pUser;
-      Navigator.pushReplacementNamed(pContext, "/home");
+      Navigator.pushReplacementNamed(pContext, "/home", arguments: user);
     } else {
       Navigator.pushReplacementNamed(pContext, "/login");
     }
