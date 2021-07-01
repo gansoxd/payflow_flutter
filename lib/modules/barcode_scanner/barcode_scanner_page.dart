@@ -7,7 +7,7 @@ import 'package:payflow/shared/themes/app_text_styles.dart';
 import 'package:payflow/shared/widgets/set_label_buttons/set_label_buttons.dart';
 
 class BarcodeScannerPage extends StatefulWidget {
-  const BarcodeScannerPage({Key? key}) : super(key: key);
+  BarcodeScannerPage({Key? key}) : super(key: key);
 
   @override
   _BarcodeScannerPageState createState() => _BarcodeScannerPageState();
@@ -25,6 +25,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
             arguments: controller.status.barcode);
       }
     });
+
+    super.initState();
   }
 
   @override
@@ -47,7 +49,9 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
               builder: (_, status, __) {
                 if (status.showCamera) {
                   return Container(
-                      child: controller.cameraController!.buildPreview());
+                    color: Colors.blue,
+                    child: controller.cameraController!.buildPreview(),
+                  );
                 } else {
                   return Container();
                 }
@@ -55,9 +59,10 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
           RotatedBox(
             quarterTurns: 1,
             child: Scaffold(
+                backgroundColor: Colors.transparent,
                 appBar: AppBar(
-                  centerTitle: true,
                   backgroundColor: Colors.black,
+                  centerTitle: true,
                   title: Text(
                     "Escaneie o código de barras do boleto",
                     style: TextStyles.buttonBackground,
@@ -69,18 +74,21 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 body: Column(
                   children: [
                     Expanded(
-                        child: Container(
-                      color: Colors.black.withOpacity(0.6),
-                    )),
+                      child: Container(
+                        color: Colors.black,
+                      ),
+                    ),
                     Expanded(
-                        flex: 2,
-                        child: Container(
-                          color: Colors.transparent,
-                        )),
+                      flex: 2,
+                      child: Container(
+                        color: Colors.transparent,
+                      ),
+                    ),
                     Expanded(
-                        child: Container(
-                      color: Colors.black.withOpacity(0.6),
-                    ))
+                      child: Container(
+                        color: Colors.black,
+                      ),
+                    )
                   ],
                 ),
                 bottomNavigationBar: SetLabelButtons(

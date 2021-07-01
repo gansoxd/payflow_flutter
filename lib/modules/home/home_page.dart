@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final homeController = HomeController();
+  final pages = [MeusBoletosPage(), ExtractPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
